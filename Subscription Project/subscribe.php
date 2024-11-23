@@ -29,7 +29,7 @@ $end_date = date('Y-m-d', strtotime("+$duration months"));
 $user_check = $conn->query("SELECT user_id FROM users WHERE email='$email'");
 if ($user_check->num_rows == 0) {
     // Insert new user
-    $conn->query("INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')");
+    $conn->query("INSERT INTO users (username, email, user_password) VALUES ('$username', '$email', '$password')");
     $user_id = $conn->insert_id;
 } else {
     $user = $user_check->fetch_assoc();
